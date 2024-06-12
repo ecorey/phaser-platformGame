@@ -24,6 +24,8 @@
 
         this.keys = scene.cursorKeys;
 
+        this.canDoubleJump = false;
+
     }
 
 
@@ -42,10 +44,27 @@
             this.body.setAccelerationX(0);
         }
 
+
+
+
         const didPressJump = Phaser.Input.Keyboard.JustDown(this.keys.up);
 
-        if(didPressJump && this.body.onFloor()) {
-            this.body.setVelocityY(-400);
+        if(didPressJump) {
+            if(this.body.onFloor()){
+                this.canDoubleJump = true;
+                this.body.setVelocityY(-400);
+            } else if (this.canDoubleJump) {
+                this.canDoubleJump = false;
+                this.body.setVelocityY(-300);
+            } 
+            
+        }
+
+
+
+        if(!this.keys.up.isDown && this.body.velocity.y < -150){
+            this.body.setVelocityY(-150);
+
         }
 
     }   
