@@ -18,6 +18,10 @@
         this.body.setOffset(12, 23);
 
 
+        this.body.setMaxSpeed( 250, 400 );
+
+        this.body.setDragX(750);
+
         this.keys = scene.cursorKeys;
 
     }
@@ -27,16 +31,23 @@
         super.preUpdate(time, delta);
 
         if(this.keys.left.isDown) {
-            this.body.setVelocityX(-250);
+            this.body.setAccelerationX(-1000);
             this.setFlipX(true);
             this.body.offset.x = 8;
         } else if(this.keys.right.isDown) {
-            this.body.setVelocityX(250);
+            this.body.setAccelerationX(1000);
             this.setFlipX(false);
             this.body.offset.x = 12;
         } else {
-            this.body.setVelocityX(0);
+            this.body.setAccelerationX(0);
         }
+
+        const didPressJump = Phaser.Input.Keyboard.JustDown(this.keys.up);
+
+        if(didPressJump && this.body.onFloor()) {
+            this.body.setVelocityY(-400);
+        }
+
     }   
 
 
