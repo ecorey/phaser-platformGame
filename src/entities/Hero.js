@@ -28,8 +28,10 @@
 
         if(this.keys.left.isDown) {
             this.body.setVelocityX(-250);
+            this.setFlipX(true);
         } else if(this.keys.right.isDown) {
             this.body.setVelocityX(250);
+            this.setFlipX(false);
         } else {
             this.body.setVelocityX(0);
         }
