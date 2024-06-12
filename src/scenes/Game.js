@@ -28,7 +28,7 @@ class Game extends Phaser.Scene {
     });
 
 
-    this.player = this.physics.add.sprite(400, 300, 'hero-run-sheet');
+    this.player = this.physics.add.sprite(250, 160, 'hero-run-sheet');
 
     this.player.anims.play('hero-running');
 
