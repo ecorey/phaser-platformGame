@@ -13,7 +13,7 @@ class Game extends Phaser.Scene {
  
 
   preload() {
-    this.load.image('logo', 'assets/phaser3-logo.png');
+
     this.load.spritesheet('hero-run-sheet', 'assets/hero/run.png', {
       frameWidth: 32,
       frameHeight: 64,
@@ -21,6 +21,17 @@ class Game extends Phaser.Scene {
   }
 
   create(data) {
+
+    this.input.keyboard.on( 'keydown-SPACE', () => {
+      console.log( 'Space key was pressed');
+    } );
+
+
+    this.space = this.input.keyboard.addKey( Phaser.Input.Keyboard.KeyCodes.SPACE );
+    this.space.on( 'up', () => {
+      console.log( 'Space key was released'); 
+    })
+
 
     this.anims.create({
       key: 'hero-running',
