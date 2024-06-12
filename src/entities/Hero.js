@@ -17,7 +17,23 @@
         this.body.setSize(12, 40);
         this.body.setOffset(12, 23);
 
+
+        this.keys = scene.cursorKeys;
+
     }
+
+
+    preUpdate(time, delta){
+        super.preUpdate(time, delta);
+
+        if(this.keys.left.isDown) {
+            this.body.setVelocityX(-250);
+        } else if(this.keys.right.isDown) {
+            this.body.setVelocityX(250);
+        } else {
+            this.body.setVelocityX(0);
+        }
+    }   
 
 
 
