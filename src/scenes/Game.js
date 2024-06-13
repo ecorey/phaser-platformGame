@@ -81,7 +81,7 @@ class Game extends Phaser.Scene {
     }
 
     update(time, delta) {
-        // Update logic here if needed
+        
     }
 }
 

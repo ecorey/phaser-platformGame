@@ -3,7 +3,7 @@ import StateMachine from 'javascript-state-machine';
 
 class Hero extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y) {
-        super(scene, x, y, 'hero-idle-sheet', 0); // Ensure correct initial frame
+        super(scene, x, y, 'hero-idle-sheet', 0); 
 
         scene.add.existing(this);
         scene.physics.add.existing(this);
@@ -14,7 +14,7 @@ class Hero extends Phaser.GameObjects.Sprite {
         this.body.setMaxSpeed(250, 400);
         this.body.setDragX(250);
 
-        this.keys = scene.cursorKeys; // Passed from Game scene
+        this.keys = scene.cursorKeys; 
         this.input = {};
 
         this.setupAnimations();
@@ -35,7 +35,7 @@ class Hero extends Phaser.GameObjects.Sprite {
             methods: {
                 onEnterState: (lifecycle) => {
                     this.anims.play('hero-' + lifecycle.to);
-                    console.log('Entering state:', lifecycle.to); // Debugging log
+                    console.log('Entering state:', lifecycle.to); 
                 },
             },
         });
