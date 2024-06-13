@@ -21,7 +21,7 @@
 
         this.body.setMaxSpeed( 250, 400 );
 
-        this.body.setDragX(750);
+        this.body.setDragX(250);
 
         this.keys = scene.cursorKeys;
 
