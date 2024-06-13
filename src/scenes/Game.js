@@ -7,6 +7,12 @@ class Game extends Phaser.Scene {
     }
 
     preload() {
+
+
+        // this.load.tilemapTiledJSON('level-1', 'assets/tilemaps/level-1.json');
+
+        // this.load.image('world-1-sheet', 'assets/tilesets/world1.png');
+
         this.load.spritesheet('hero-idle-sheet', 'assets/hero/idle.png', {
             frameWidth: 32,
             frameHeight: 64,
@@ -31,7 +37,13 @@ class Game extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 64,
         });
+
+
+
     }
+
+
+    
 
     create(data) {
         this.cursorKeys = this.input.keyboard.createCursorKeys();
@@ -73,12 +85,34 @@ class Game extends Phaser.Scene {
             repeat: -1,
         });
 
+
+
+        // this.addMap();
+
         this.hero = new Hero(this, 250, 160);
 
-        const platform = this.add.rectangle(240, 240, 260, 10, 0x4BCB7C);
-        this.physics.add.existing(platform, true);
-        this.physics.add.collider(this.hero, platform);
+       
+
+
+
+
     }
+
+
+
+
+    // addMap() {
+
+    //     this.map = this.make.tilemap({ key: 'level-1' });
+    //     const groundTiles = this.map.addTilesetImage('world-1', 'world-1-sheet');
+    
+    //     this.map.createStaticLayer('Ground', groundTiles);
+    
+    //   }
+
+
+
+
 
     update(time, delta) {
         
