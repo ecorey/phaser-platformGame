@@ -1,11 +1,16 @@
 import Phaser from 'phaser';
 import Hero from '../entities/Hero';
 
+
+
+
 class Game extends Phaser.Scene {
     constructor() {
         super({ key: 'GameScene' });
     }
 
+
+    
     preload() {
 
 

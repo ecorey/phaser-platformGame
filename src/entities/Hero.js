@@ -1,8 +1,13 @@
 import Phaser from "phaser";
 import StateMachine from 'javascript-state-machine';
 
+
+
 class Hero extends Phaser.GameObjects.Sprite {
+
+
     constructor(scene, x, y) {
+
         super(scene, x, y, 'hero-idle-sheet', 0); 
 
         scene.add.existing(this);
@@ -21,8 +26,13 @@ class Hero extends Phaser.GameObjects.Sprite {
         this.setupMovement();
     }
 
+
+
+
     setupAnimations() {
+
         this.animsState = new StateMachine({
+
             init: 'idle',
             transitions: [
                 { name: 'idle', from: ['falling', 'running', 'pivoting'], to: 'idle' },
@@ -40,6 +50,7 @@ class Hero extends Phaser.GameObjects.Sprite {
             },
         });
 
+
         this.animPredicates = {
             idle: () => this.body.onFloor() && this.body.velocity.x === 0,
             run: () => this.body.onFloor() && Math.abs(this.body.velocity.x) > 0,
@@ -48,10 +59,19 @@ class Hero extends Phaser.GameObjects.Sprite {
             flip: () => this.body.velocity.y < 0 && this.moveState.is('flipping'),
             fall: () => this.body.velocity.y > 0,
         };
+
+
     }
 
+
+
+
+
     setupMovement() {
+
+
         this.moveState = new StateMachine({
+
             init: 'standing',
             transitions: [
                 { name: 'jump', from: 'standing', to: 'jumping' },
@@ -71,9 +91,16 @@ class Hero extends Phaser.GameObjects.Sprite {
             fall: () => !this.body.onFloor(),
             touchdown: () => this.body.onFloor(),
         };
+
+
     }
 
+
+
+
+
     preUpdate(time, delta) {
+
         super.preUpdate(time, delta);
 
         this.input.didPressJump = Phaser.Input.Keyboard.JustDown(this.keys.up);
@@ -110,6 +137,24 @@ class Hero extends Phaser.GameObjects.Sprite {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    
 }
+
+
+
+
+
 
 export default Hero;
