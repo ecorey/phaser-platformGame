@@ -52,12 +52,14 @@ class Hero extends Phaser.GameObjects.Sprite {
 
 
         this.animPredicates = {
+
             idle: () => this.body.onFloor() && this.body.velocity.x === 0,
             run: () => this.body.onFloor() && Math.abs(this.body.velocity.x) > 0,
             pivot: () => this.body.onFloor() && (Math.sign(this.body.velocity.x) > 0) === (this.flipX ? 1 : -1),
             jump: () => this.body.velocity.y < 0,
             flip: () => this.body.velocity.y < 0 && this.moveState.is('flipping'),
             fall: () => this.body.velocity.y > 0,
+            
         };
 
 
@@ -149,7 +151,7 @@ class Hero extends Phaser.GameObjects.Sprite {
 
 
 
-    
+
 }
 
 
