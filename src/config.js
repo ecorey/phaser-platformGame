@@ -1,6 +1,11 @@
 import Phaser from 'phaser';
 
+
+
+
+
 export default {
+
   type: Phaser.AUTO,
   parent: 'game',
   backgroundColor: '#33A5E7',
@@ -23,4 +28,7 @@ export default {
       debugShowVelocity: true,
     }
   }
+
+
+  
 };

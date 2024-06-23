@@ -59,7 +59,7 @@ class Hero extends Phaser.GameObjects.Sprite {
             jump: () => this.body.velocity.y < 0,
             flip: () => this.body.velocity.y < 0 && this.moveState.is('flipping'),
             fall: () => this.body.velocity.y > 0,
-            
+
         };
 
 
@@ -85,7 +85,10 @@ class Hero extends Phaser.GameObjects.Sprite {
                 onJump: () => this.body.setVelocityY(-400),
                 onFlip: () => this.body.setVelocityY(-300),
             },
+
+
         });
+        
 
         this.movePredicates = {
             jump: () => this.input.didPressJump,
