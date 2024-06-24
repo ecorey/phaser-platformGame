@@ -16,9 +16,14 @@ class Game extends Phaser.Scene {
     preload() {
 
 
-        // this.load.tilemapTiledJSON('level-1', 'assets/tilemaps/level-1.json');
+        this.load.tilemapTiledJSON('level-1', 'assets/tilemaps/level-1.json');
 
-        // this.load.image('world-1-sheet', 'assets/tilesets/world1.png');
+
+        this.load.image('world-1-sheet', 'assets/tilesets/world-1.png');
+
+
+
+
 
         this.load.spritesheet('hero-idle-sheet', 'assets/hero/idle.png', {
             frameWidth: 32,
@@ -106,7 +111,7 @@ class Game extends Phaser.Scene {
             repeat: -1,
         });
 
-        
+
         this.anims.create({
             key: 'hero-running',
             frames: this.anims.generateFrameNumbers('hero-run-sheet'),
@@ -116,7 +121,7 @@ class Game extends Phaser.Scene {
 
 
 
-        // this.addMap();
+        this.addMap();
 
         this.hero = new Hero(this, 250, 160);
 
@@ -130,14 +135,18 @@ class Game extends Phaser.Scene {
 
 
 
-    // addMap() {
+    addMap() {
+        
+    this.map = this.make.tilemap({ key: 'level-1' });
+    console.log('Tilemap loaded:', this.map);  // Check if map loads correctly
 
-    //     this.map = this.make.tilemap({ key: 'level-1' });
-    //     const groundTiles = this.map.addTilesetImage('world-1', 'world-1-sheet');
-    
-    //     this.map.createStaticLayer('Ground', groundTiles);
-    
-    //   }
+    const tileset = this.map.addTilesetImage('world-1', 'world-1-sheet');
+    console.log('Tileset loaded:', tileset);  // Check if tileset is correctly linked
+
+    const groundLayer = this.map.createStaticLayer('Ground', tileset);
+    console.log('Layer created:', groundLayer);  // Verify layer creation
+}
+
 
 
 
