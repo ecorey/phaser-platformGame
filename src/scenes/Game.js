@@ -125,6 +125,9 @@ class Game extends Phaser.Scene {
 
         this.hero = new Hero(this, 250, 160);
 
+
+        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+        this.cameras.main.startFollow(this.hero);
        
 
 
@@ -138,13 +141,19 @@ class Game extends Phaser.Scene {
     addMap() {
         
     this.map = this.make.tilemap({ key: 'level-1' });
-    console.log('Tilemap loaded:', this.map);  // Check if map loads correctly
+    console.log('Tilemap loaded:', this.map);  
 
     const tileset = this.map.addTilesetImage('world-1', 'world-1-sheet');
-    console.log('Tileset loaded:', tileset);  // Check if tileset is correctly linked
+    console.log('Tileset loaded:', tileset);  
 
     const groundLayer = this.map.createStaticLayer('Ground', tileset);
-    console.log('Layer created:', groundLayer);  // Verify layer creation
+    console.log('Layer created:', groundLayer); 
+
+
+    this.physics.world.setBounds(0,0, this.map.widthInPixels, this.map.heightInPixels);
+    this.physics.world.setBoundsCollision(true, true, false, true);
+
+
 }
 
 
