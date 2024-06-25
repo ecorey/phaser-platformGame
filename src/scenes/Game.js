@@ -144,6 +144,10 @@ class Game extends Phaser.Scene {
 
         this.hero = new Hero(this, 250, 160);
 
+
+        this.children.moveTo(this.hero, this.children.getIndex(this.map.getLayer('Foreground').tilemapLayer));
+
+        
         this.physics.add.collider(this.hero, this.map.getLayer('Ground').tilemapLayer);
 
     }
@@ -161,6 +165,11 @@ class Game extends Phaser.Scene {
 
         const groundLayer = this.map.createStaticLayer('Ground', tileset);
         console.log('Layer created:', groundLayer); 
+
+
+        this.map.createStaticLayer('Foreground', tileset);
+
+
 
 
         groundLayer.setCollision([1], true);
