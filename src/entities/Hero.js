@@ -82,8 +82,8 @@ class Hero extends Phaser.GameObjects.Sprite {
                 { name: 'touchdown', from: ['jumping', 'flipping', 'falling'], to: 'standing' }
             ],
             methods: {
-                onJump: () => this.body.setVelocityY(-400),
-                onFlip: () => this.body.setVelocityY(-300),
+                onJump: () => this.body.setVelocityY(-600),
+                onFlip: () => this.body.setVelocityY(-400),
             },
 
 

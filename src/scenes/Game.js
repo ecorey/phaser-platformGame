@@ -20,6 +20,8 @@ class Game extends Phaser.Scene {
 
 
         this.load.image('world-1-sheet', 'assets/tilesets/world-1.png');
+        this.load.image('clouds-sheet', 'assets/tilesets/clouds.png');
+
 
 
 
@@ -147,7 +149,7 @@ class Game extends Phaser.Scene {
 
         this.children.moveTo(this.hero, this.children.getIndex(this.map.getLayer('Foreground').tilemapLayer));
 
-        
+
         this.physics.add.collider(this.hero, this.map.getLayer('Ground').tilemapLayer);
 
     }
@@ -158,26 +160,28 @@ class Game extends Phaser.Scene {
     addMap() {
         
         this.map = this.make.tilemap({ key: 'level-1' });
-        console.log('Tilemap loaded:', this.map);  
+        
 
-        const tileset = this.map.addTilesetImage('world-1', 'world-1-sheet');
-        console.log('Tileset loaded:', tileset);  
-
-        const groundLayer = this.map.createStaticLayer('Ground', tileset);
-        console.log('Layer created:', groundLayer); 
+        const groundTiles = this.map.addTilesetImage('world-1', 'world-1-sheet');
+        const backgroundTiles = this.map.addTilesetImage('clouds', 'clouds-sheet');
 
 
-        this.map.createStaticLayer('Foreground', tileset);
-
-
-
-
+        const groundLayer = this.map.createStaticLayer('Ground', groundTiles);
         groundLayer.setCollision([1], true);
 
 
+
+        this.map.createStaticLayer('Foreground', groundTiles);
+
+
+
+
+        
         this.physics.world.setBounds(0,0, this.map.widthInPixels, this.map.heightInPixels);
         this.physics.world.setBoundsCollision(true, true, false, true);
 
+
+        
 
     }
 
