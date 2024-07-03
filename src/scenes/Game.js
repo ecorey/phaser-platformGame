@@ -135,12 +135,11 @@ class Game extends Phaser.Scene {
         this.cameras.main.startFollow(this.hero);
        
 
-
-
-
     }
 
 
+
+    
 
     addHero() {
 
@@ -175,8 +174,6 @@ class Game extends Phaser.Scene {
 
 
 
-
-        
         this.physics.world.setBounds(0,0, this.map.widthInPixels, this.map.heightInPixels);
         this.physics.world.setBoundsCollision(true, true, false, true);
 
