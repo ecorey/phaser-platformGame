@@ -3,6 +3,8 @@ import StateMachine from 'javascript-state-machine';
 
 
 
+
+
 class Hero extends Phaser.GameObjects.Sprite {
 
 
@@ -142,14 +144,6 @@ class Hero extends Phaser.GameObjects.Sprite {
             }
         }
     }
-
-
-
-
-
-
-
-
 
 
 
