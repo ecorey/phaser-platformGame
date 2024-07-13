@@ -26,6 +26,7 @@ class Hero extends Phaser.GameObjects.Sprite {
 
         this.setupAnimations();
         this.setupMovement();
+        
     }
 
 
